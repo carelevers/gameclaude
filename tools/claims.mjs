@@ -58,7 +58,11 @@ function expire(hours) {
   const issues = ghJson(['issue', 'list', '-R', repo, '--state', 'open', '--label', LABELS.claimed.name, '--limit', '500', '--json', 'number']);
   for (const { number } of issues) {
     const claim = activeClaim(ghApiList(`repos/${repo}/issues/${number}/comments`));
-    const age = claim ? (Date.now() - claim.at.getTime()) / 3.6e6 : Infinity;
+    if (!claim) {
+      edit(number, [], [LABELS.claimed.name]); // label out of sync; nothing to announce
+      continue;
+    }
+    const age = (Date.now() - claim.at.getTime()) / 3.6e6;
     if (age < hours || openPrFor(number)) continue;
     gh(['issue', 'comment', String(number), '-R', repo, '--body', releaseComment(`no pull request within ${hours} hours. Free to pick up again.`)]);
     edit(number, [], [LABELS.claimed.name]);

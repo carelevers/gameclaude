@@ -151,7 +151,7 @@ function buildPrompt(task, login) {
 function runAgent(prompt, minutes) {
   const cfg = agentConfig();
   const args = cfg.args.map((a) => a.replace('{prompt}', prompt));
-  log(`running ${cfg.command} (limit ${minutes} min)...`);
+  log(`running ${cfg.command} (limit ${Math.round(minutes)} min)...`);
   return new Promise((resolve) => {
     const child = spawn(cfg.command, args, { cwd: ROOT, stdio: ['ignore', 'inherit', 'inherit'] });
     const timer = setTimeout(() => {
@@ -224,7 +224,8 @@ async function doOneTask(repo, login, trusted, skip) {
     git('commit', '-m', `${issue.title}\n\nCloses #${issue.number}\n\nAgent: ${AGENT}\nAgent-Minutes: ${minutes}\nVolunteer: @${login}`);
     const remote = pushRemote();
     git('push', '-u', remote, branch);
-    const headOwner = repoFromGit(remote).split('/')[0];
+    // Pushing to a fork: the branch lives under your account.
+    const headOwner = remote === UPSTREAM_REMOTE ? repo.split('/')[0] : login;
     const body = [
       `Closes #${issue.number}`,
       '',
@@ -258,7 +259,7 @@ async function doOneTask(repo, login, trusted, skip) {
   return true;
 }
 
-const repo = opt('repo', repoFromGit(UPSTREAM_REMOTE));
+const repo = opt('repo') ?? repoFromGit(UPSTREAM_REMOTE);
 const login = currentLogin();
 const trusted = maintainers();
 log(`${login} lending a ${AGENT} agent to ${repo} (budget ${BUDGET} min/task, up to ${MAX_TASKS} task(s))${DRY ? ' [dry run]' : ''}`);
