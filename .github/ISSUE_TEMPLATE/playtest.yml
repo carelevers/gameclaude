@@ -1,0 +1,21 @@
+name: Playtest feedback
+description: Played a match? Tell us what felt good or bad.
+labels: [playtest]
+body:
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Mode
+      options: [Royale, 501 Race, Around the Clock, Other]
+  - type: input
+    id: players
+    attributes:
+      label: How many real people were in the room?
+  - type: textarea
+    id: good
+    attributes:
+      label: What was fun?
+  - type: textarea
+    id: bad
+    attributes:
+      label: What was confusing, unfair or boring?

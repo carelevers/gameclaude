@@ -1,0 +1,162 @@
+[
+  {
+    "title": "Game mode: Cricket for 100 (simultaneous)",
+    "zone": "modes", "size": "m", "priority": 1,
+    "goal": "Add a simultaneous version of Cricket that works with up to 100 players.",
+    "details": "Classic cricket uses 15-20 and the bull. With 100 players at once, closing a number cannot block 99 opponents fairly, so use 'cut-throat lite': each player marks numbers for themselves (3 marks closes a number for that player), and extra marks on a closed number score points. After 10 rounds, rank by closed numbers, then points. Bots should aim at their highest unclosed number (treble).",
+    "acceptance": "- content/modes/cricket.js implements the full mode contract\n- npm test passes; the simulation finishes every game within maxRounds\n- standings value shows closed numbers and points, e.g. \"5 closed, 120 pts\"",
+    "scope": ["+content/modes/cricket.js"]
+  },
+  {
+    "title": "Game mode: Killer",
+    "zone": "modes", "size": "m", "priority": 2,
+    "goal": "Add Killer: each player gets a number; hit your double to become a killer, then hit others' doubles to take their lives.",
+    "details": "With 100 players and 20 numbers, several players share a number. Assign numbers round-robin at init using ctx.rng. Each player has 3 lives. A dart in a double removes one life from every killer-eligible opponent who owns that number (not yourself). Last player with lives wins; cap at maxRounds and then rank by lives.",
+    "acceptance": "- content/modes/killer.js implements the mode contract\n- npm test passes\n- The simulation report shows winners with clearly higher accuracy than the field",
+    "scope": ["+content/modes/killer.js"]
+  },
+  {
+    "title": "Game mode: Shanghai",
+    "zone": "modes", "size": "s", "priority": 2,
+    "goal": "Add Shanghai: round N only counts hits on number N (rounds 1-7). Single+double+treble of the same number in one visit wins instantly.",
+    "details": "Score = number x multiplier for hits on the round's number. A 'Shanghai' (single, double and treble of the round's number in one visit) wins immediately; if several players do it in the same round, the higher total wins. After 7 rounds the highest total wins.",
+    "acceptance": "- content/modes/shanghai.js implements the mode contract\n- npm test passes",
+    "scope": ["+content/modes/shanghai.js"]
+  },
+  {
+    "title": "Game mode: Bob's 27",
+    "zone": "modes", "size": "s", "priority": 3,
+    "goal": "Add Bob's 27, the doubles practice game, as a 100-player race.",
+    "details": "Everyone starts with 27 points. Round N targets double N (rounds 1-20, then bull). Each hit adds 2 x N; a visit without hits subtracts 2 x N. Players at 0 or below are out. Highest score after the bull round wins.",
+    "acceptance": "- content/modes/bobs_27.js implements the mode contract\n- npm test passes",
+    "scope": ["+content/modes/bobs_27.js"]
+  },
+  {
+    "title": "Game mode: Halve It",
+    "zone": "modes", "size": "s", "priority": 3,
+    "goal": "Add Halve It: fixed targets per round; miss the target in a visit and your score is halved.",
+    "details": "Targets: 20, 16, any double, 17, any treble, 18, bull. Highest score after the last target wins.",
+    "acceptance": "- content/modes/halve_it.js implements the mode contract\n- npm test passes",
+    "scope": ["+content/modes/halve_it.js"]
+  },
+  {
+    "title": "Game mode: Darts Golf (9 holes)",
+    "zone": "modes", "size": "s", "priority": 3,
+    "goal": "Add Golf: hole N is number N. Double = 1 stroke, treble = 2, inner single = 3, outer single = 4, miss = 5. Lowest total after 9 holes wins.",
+    "details": "Each visit is one hole; only the best dart of the visit counts (players can be assumed to 'stop' after a good dart). Inner/outer single can be told apart by distance from the centre in the dart's x/y versus the board rings.",
+    "acceptance": "- content/modes/golf.js implements the mode contract\n- npm test passes",
+    "scope": ["+content/modes/golf.js"]
+  },
+  {
+    "title": "Game mode: Sudden Death",
+    "zone": "modes", "size": "s", "priority": 2,
+    "goal": "A faster Royale: every round, everyone below the round's median score is out.",
+    "details": "Ties at the median survive. If nobody would be eliminated, the single lowest visit is out (bull-off with ctx.rng on ties).",
+    "acceptance": "- content/modes/sudden_death.js implements the mode contract\n- npm test passes; average game length is reported by the simulation and is clearly shorter than Royale",
+    "scope": ["+content/modes/sudden_death.js"]
+  },
+  {
+    "title": "Game mode: Team Royale (10 teams of 10)",
+    "zone": "modes", "size": "m", "priority": 2,
+    "goal": "Split the 100 players into 10 teams; each round the team with the lowest combined score is knocked out.",
+    "details": "Assign teams with ctx.rng at init so humans are spread out. Standings: alive teams first; value shows team name and total, e.g. \"Team 3 · 412\". Team names can be colours.",
+    "acceptance": "- content/modes/team_royale.js implements the mode contract\n- npm test passes",
+    "scope": ["+content/modes/team_royale.js"]
+  },
+  {
+    "title": "Board: Neon Night",
+    "zone": "boards", "size": "s", "priority": 3,
+    "goal": "A dark, glowing board for late-night matches using the palette's blues and aquas.",
+    "details": "Standard segments and rings; only the colors change. Check it in the gallery and make sure doubles and trebles are still easy to tell apart.",
+    "acceptance": "- content/boards/neon_night.json passes validation\n- Readable in the gallery",
+    "scope": ["+content/boards/neon_night.json"]
+  },
+  {
+    "title": "Board: Big Bull (beginner friendly)",
+    "zone": "boards", "size": "s", "priority": 2,
+    "goal": "A board with a much bigger bull and outer bull, for kids and first-timers.",
+    "details": "Keep the 20 standard numbers so every mode can be played on it. Respect the validator's minimum ring gaps.",
+    "acceptance": "- content/boards/big_bull.json passes validation\n- Simulation shows shorter Around the Clock games than on Classic",
+    "scope": ["+content/boards/big_bull.json"]
+  },
+  {
+    "title": "Board: Pro Thin Rings",
+    "zone": "boards", "size": "s", "priority": 3,
+    "goal": "A hard board with thin trebles and doubles for the experts.",
+    "details": "Use the minimum allowed ring widths. Standard numbers.",
+    "acceptance": "- content/boards/pro_thin.json passes validation",
+    "scope": ["+content/boards/pro_thin.json"]
+  },
+  {
+    "title": "Board: Clock Order (1-20 clockwise)",
+    "zone": "boards", "size": "s", "priority": 3,
+    "goal": "A silly board where the numbers simply run 1 to 20 clockwise. Makes Around the Clock trivially easy and Royale strangely different.",
+    "details": "Segments [1..20]. Pick a cheerful color scheme.",
+    "acceptance": "- content/boards/clock_order.json passes validation",
+    "scope": ["+content/boards/clock_order.json"]
+  },
+  {
+    "title": "Tests: unit tests for the 501 checkout brain",
+    "zone": "docs", "size": "s", "priority": 2,
+    "goal": "Make sure bots in 501 never aim at a target that busts them on the first dart.",
+    "details": "For every remaining score 2..501, check that x01's aim() returns a target whose score does not leave 1 or below zero, and that even numbers <= 40 aim at the matching double.",
+    "acceptance": "- test/x01.test.mjs exists and passes with node --test",
+    "scope": ["+test/x01.test.mjs"]
+  },
+  {
+    "title": "Tests: property tests for board scoring",
+    "zone": "docs", "size": "s", "priority": 2,
+    "goal": "Check that aimPoint() of every number/ring on every board scores exactly that number/ring.",
+    "details": "Loop over all boards in content/boards and every segment number with rings single, double, treble, plus bull and outer bull.",
+    "acceptance": "- test/board-properties.test.mjs exists and passes",
+    "scope": ["+test/board-properties.test.mjs"]
+  },
+  {
+    "title": "Core: show each player's last darts when hovering their row",
+    "zone": "core", "size": "s", "priority": 2,
+    "goal": "Hovering a name in the field list highlights that player's darts on the board.",
+    "details": "The snapshot already contains visits for everyone. Add a highlighted set to the board view.",
+    "acceptance": "- Works with mouse; on touch, tapping a row toggles the highlight\n- npm test passes",
+    "scope": ["game/main.js", "game/ui/board-view.js", "game/style.css"]
+  },
+  {
+    "title": "Core: Dutch translation of the game UI",
+    "zone": "core", "size": "m", "priority": 2,
+    "goal": "Add a tiny i18n layer and a Dutch translation, selectable in the menu.",
+    "details": "Keep it dependency-free: a game/ui/i18n.js with an English and a Dutch string table. Content (player bios etc.) stays as written.",
+    "acceptance": "- All UI strings in game/index.html and game/main.js come from the table\n- Language choice is remembered (try/catch around localStorage)",
+    "scope": ["game/ui/i18n.js", "game/main.js", "game/index.html"]
+  },
+  {
+    "title": "Core: sound effects (thunk, crowd, elimination)",
+    "zone": "core", "size": "m", "priority": 3,
+    "goal": "Add synthesized sounds with the WebAudio API (no audio files) and a mute toggle.",
+    "details": "A short 'thunk' when a dart lands, a cheer on 100+ visits, a sad trombone when you are eliminated.",
+    "acceptance": "- game/ui/sound.js, mute toggle remembered\n- No sound before the first user interaction",
+    "scope": ["game/ui/sound.js", "game/main.js", "game/index.html", "game/style.css"]
+  },
+  {
+    "title": "Core: keyboard aiming for accessibility",
+    "zone": "core", "size": "s", "priority": 2,
+    "goal": "Let players aim with the arrow keys and throw with space.",
+    "details": "Arrow keys move the aim point by 5mm (shift: 20mm). Space throws. Announce each dart's score in an aria-live region.",
+    "acceptance": "- Playable without a mouse\n- npm test passes",
+    "scope": ["game/ui/board-view.js", "game/main.js", "game/index.html"]
+  },
+  {
+    "title": "Core: emoji reactions in online rooms",
+    "zone": "core", "size": "m", "priority": 3,
+    "goal": "Let people in an online room send one of six emoji reactions that float over everyone's board.",
+    "details": "Rate limit to one reaction per 2 seconds per player on the server. Fixed emoji set; no free text (no moderation needed).",
+    "acceptance": "- New POST /api/rooms/:code/react endpoint with validation\n- Reactions appear for all players via the event stream",
+    "scope": ["server/server.mjs", "game/ui/sessions.js", "game/main.js", "game/style.css"]
+  },
+  {
+    "title": "Core: test the multiplayer server end-to-end",
+    "zone": "core", "size": "m", "priority": 1,
+    "goal": "Add an automated test that starts the server on a random port, creates a room, joins a second player, plays two rounds and checks the snapshots.",
+    "details": "Use node:test and fetch; read the SSE stream manually. ROUND_SECONDS and RESULTS_MS can be lowered with environment variables.",
+    "acceptance": "- test/server.test.mjs passes and cleans up after itself",
+    "scope": ["+test/server.test.mjs"]
+  }
+]

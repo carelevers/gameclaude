@@ -1,0 +1,44 @@
+{
+  "id": "pub_wide",
+  "name": "Wide Pub Board",
+  "author": "@core-team",
+  "description": "Fat trebles and doubles. Friendly for beginners.",
+  "segments": [
+    20,
+    1,
+    18,
+    4,
+    13,
+    6,
+    10,
+    15,
+    2,
+    17,
+    3,
+    19,
+    7,
+    16,
+    8,
+    11,
+    14,
+    9,
+    12,
+    5
+  ],
+  "rings": {
+    "bull": 9,
+    "outerBull": 20,
+    "trebleInner": 94,
+    "trebleOuter": 110,
+    "doubleInner": 156,
+    "doubleOuter": 170
+  },
+  "colors": {
+    "dark": "n",
+    "light": "w",
+    "red": "r",
+    "green": "t",
+    "wire": "m",
+    "surround": "k"
+  }
+}

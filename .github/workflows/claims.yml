@@ -1,0 +1,42 @@
+# Keeps task labels in sync with the claim protocol of `npm run worker`.
+# Volunteers usually cannot edit labels, so this workflow does it for them.
+# Security: this only ever runs the base branch's own tools; it never checks
+# out or executes code from a pull request.
+name: Task claims
+
+on:
+  issue_comment:
+    types: [created]
+  pull_request_target:
+    types: [opened, reopened, closed, edited]
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: read
+
+concurrency:
+  group: claims-${{ github.event.issue.number || github.event.pull_request.number || 'expire' }}
+
+jobs:
+  claims:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Sync claim labels
+        if: github.event_name == 'issue_comment' && !github.event.issue.pull_request && contains(github.event.comment.body, 'agent-worker:')
+        run: node tools/claims.mjs sync "${{ github.event.issue.number }}"
+      - name: Track pull requests
+        if: github.event_name == 'pull_request_target'
+        run: node tools/claims.mjs pr "${{ github.event.pull_request.number }}"
+      - name: Expire stale claims
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: node tools/claims.mjs expire 3

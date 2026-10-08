@@ -1,0 +1,23 @@
+{
+  "id": "yuki_metronome",
+  "name": "Yuki the Metronome",
+  "author": "@core-team",
+  "bio": "Same stance, same breath, same throw. Every single time.",
+  "accuracy": 74,
+  "nerves": 10,
+  "color": "t",
+  "avatar": [
+    "..kkkk..",
+    ".kkkkkk.",
+    ".kwkkwk.",
+    ".yyyyyy.",
+    "..yyyy..",
+    ".tttttt.",
+    "tttwwttt",
+    "tt.tt.tt"
+  ],
+  "catchphrases": [
+    "Tick.",
+    "Tock."
+  ]
+}

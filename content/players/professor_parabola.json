@@ -1,0 +1,23 @@
+{
+  "id": "professor_parabola",
+  "name": "Professor Parabola",
+  "author": "@core-team",
+  "bio": "Calculates every throw. Sometimes still calculating when the round ends.",
+  "accuracy": 70,
+  "nerves": 65,
+  "color": "b",
+  "avatar": [
+    "..ssss..",
+    ".ssssss.",
+    ".wkwwkw.",
+    ".yyyyyy.",
+    "..yyyy..",
+    ".bbwwbb.",
+    "bbbwwbbb",
+    "bb.bb.bb"
+  ],
+  "catchphrases": [
+    "Elementary geometry.",
+    "Within the margin of error."
+  ]
+}

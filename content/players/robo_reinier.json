@@ -1,0 +1,23 @@
+{
+  "id": "robo_reinier",
+  "name": "Robo-Reinier",
+  "author": "@core-team",
+  "bio": "A darts robot built in a Delft basement. Firmware version 0.9 beta.",
+  "accuracy": 85,
+  "nerves": 60,
+  "color": "s",
+  "avatar": [
+    "...ss...",
+    ".ssssss.",
+    ".saasaa.",
+    ".ssssss.",
+    ".smmmms.",
+    "ssssssss",
+    "smsmmsms",
+    "ss.ss.ss"
+  ],
+  "catchphrases": [
+    "BEEP. TREBLE TWENTY.",
+    "Recalibrating..."
+  ]
+}

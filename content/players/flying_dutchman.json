@@ -1,0 +1,23 @@
+{
+  "id": "flying_dutchman",
+  "name": "The Flying Dutchman",
+  "author": "@core-team",
+  "bio": "Sailed in from Volendam. Throws like the wind: fast and usually in the right direction.",
+  "accuracy": 82,
+  "nerves": 30,
+  "color": "o",
+  "avatar": [
+    "..oooo..",
+    ".oyyyyo.",
+    ".ykyyky.",
+    ".yyyyyy.",
+    "..yrry..",
+    ".oooooo.",
+    "oooooooo",
+    "oo.oo.oo"
+  ],
+  "catchphrases": [
+    "Hup!",
+    "Straight from the harbour."
+  ]
+}

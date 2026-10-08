@@ -1,0 +1,23 @@
+{
+  "id": "oma_jo",
+  "name": "Oma Jo",
+  "author": "@core-team",
+  "bio": "Eighty-one years old. Has been playing since before the board had numbers.",
+  "accuracy": 64,
+  "nerves": 5,
+  "color": "p",
+  "avatar": [
+    "..ssss..",
+    ".ssssss.",
+    ".ykyyky.",
+    ".yyyyyy.",
+    "..yppy..",
+    ".pppppp.",
+    "pppppppp",
+    "pp.pp.pp"
+  ],
+  "catchphrases": [
+    "Back in my day...",
+    "Lovely, dear."
+  ]
+}

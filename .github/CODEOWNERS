@@ -1,0 +1,10 @@
+# Core zones need a core-team review. Community zones (content/players,
+# content/boards, test, docs) can be reviewed by any maintainer.
+/game/            @carelevers
+/server/          @carelevers
+/tools/           @carelevers
+/.github/         @carelevers
+/tasks/           @carelevers
+/content/modes/   @carelevers
+/package.json     @carelevers
+/Dockerfile       @carelevers

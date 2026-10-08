@@ -1,0 +1,23 @@
+{
+  "id": "gerrit_grumble",
+  "name": "Gerrit Grumble",
+  "author": "@core-team",
+  "bio": "Complains about the lighting, the board, the darts and the weather. Wins anyway, sometimes.",
+  "accuracy": 67,
+  "nerves": 40,
+  "color": "m",
+  "avatar": [
+    "........",
+    ".mmmmmm.",
+    ".ykyyky.",
+    ".yyyyyy.",
+    ".ymmmmy.",
+    ".mmmmmm.",
+    "mmmmmmmm",
+    "mm.mm.mm"
+  ],
+  "catchphrases": [
+    "The light is terrible here.",
+    "Hmpf."
+  ]
+}

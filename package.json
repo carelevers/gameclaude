@@ -1,0 +1,22 @@
+{
+  "name": "darts-100",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A darts game for 100 players at once, built by a distributed network of volunteers and their AI agents.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server/server.mjs",
+    "dev": "node server/server.mjs",
+    "validate": "node tools/validate.mjs",
+    "simulate": "node tools/simulate.mjs",
+    "test": "node tools/validate.mjs && node --test \"test/**/*.test.mjs\" && node tools/simulate.mjs --runs 10",
+    "build": "node tools/build.mjs",
+    "worker": "node tools/agent-worker.mjs",
+    "metrics": "node tools/metrics.mjs",
+    "scope": "node tools/scope-check.mjs"
+  }
+}

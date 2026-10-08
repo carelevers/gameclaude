@@ -1,0 +1,23 @@
+{
+  "id": "lucky_luuk",
+  "name": "Lucky Luuk",
+  "author": "@core-team",
+  "bio": "Wears the same socks for every match. They have not been washed since 2019.",
+  "accuracy": 38,
+  "nerves": 50,
+  "color": "l",
+  "avatar": [
+    "..llll..",
+    ".llllll.",
+    ".ykyyky.",
+    ".yyyyyy.",
+    "..yyyy..",
+    ".gggggg.",
+    "gglgglgg",
+    "gg.gg.gg"
+  ],
+  "catchphrases": [
+    "The socks never lie.",
+    "Pure skill. Mostly."
+  ]
+}

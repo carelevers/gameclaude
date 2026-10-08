@@ -1,0 +1,23 @@
+{
+  "id": "dona_dardo",
+  "name": "Doña Dardo",
+  "author": "@core-team",
+  "bio": "Queen of the Rotterdam darts cafés. Hates losing more than she loves winning.",
+  "accuracy": 76,
+  "nerves": 35,
+  "color": "r",
+  "avatar": [
+    ".kkkkkk.",
+    "kkkkkkkk",
+    "kykyykyk",
+    ".yyyyyy.",
+    "..yrry..",
+    ".rrrrrr.",
+    "rrrwwrrr",
+    "rr.rr.rr"
+  ],
+  "catchphrases": [
+    "Olé!",
+    "Is that all you have?"
+  ]
+}

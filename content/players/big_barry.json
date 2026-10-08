@@ -1,0 +1,23 @@
+{
+  "id": "big_barry",
+  "name": "Big Barry",
+  "author": "@core-team",
+  "bio": "Has never missed a Friday at the pub. Has missed many trebles.",
+  "accuracy": 45,
+  "nerves": 20,
+  "color": "r",
+  "avatar": [
+    "..dddd..",
+    ".dyyyyd.",
+    ".ykyyky.",
+    ".yyyyyy.",
+    ".yddddy.",
+    "rrrrrrrr",
+    "rrrrrrrr",
+    "rr.rr.rr"
+  ],
+  "catchphrases": [
+    "Another round!",
+    "That one was for my mum."
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "sanne_speed",
+  "name": "Sanne Speed",
+  "author": "@core-team",
+  "bio": "Throws all three darts before you have finished blinking.",
+  "accuracy": 58,
+  "nerves": 25,
+  "color": "a",
+  "avatar": [
+    "..aaaa..",
+    ".aaaaaa.",
+    ".ykyyky.",
+    ".yyyyyy.",
+    "..yyyy..",
+    ".bbbbbb.",
+    "bbabbabb",
+    "bb.bb.bb"
+  ],
+  "catchphrases": [
+    "Done already!",
+    "Next!"
+  ]
+}

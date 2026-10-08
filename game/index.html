@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Darts 100</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Darts 100</h1>
+      <p class="tag">One hundred players. Three darts each. Every round, all at once.</p>
+      <nav><a href="gallery.html">Gallery</a> · <a href="#" id="credits-link">Credits</a> · <a href="https://github.com/carelevers/gameclaude">Build this game with us</a></nav>
+    </header>
+
+    <section id="menu" class="panel">
+      <label>Your name <input id="name" maxlength="24" placeholder="Player" /></label>
+      <label>Mode <select id="mode"></select></label>
+      <p id="mode-desc" class="muted"></p>
+      <label>Board <select id="board"></select></label>
+      <label>Hand
+        <select id="hand">
+          <option value="9">Steady (easier)</option>
+          <option value="14" selected>Normal</option>
+          <option value="22">After a few beers (harder)</option>
+        </select>
+      </label>
+      <div class="buttons"><button id="solo">Play vs 99 bots</button></div>
+      <div id="online" hidden>
+        <h2>Online with friends</h2>
+        <div class="buttons">
+          <button id="create">Create room</button>
+          <input id="code" maxlength="6" placeholder="CODE" />
+          <button id="join">Join</button>
+        </div>
+        <p class="muted">Up to 100 people per room. Empty seats are filled with community-designed bots.</p>
+      </div>
+      <p id="menu-error" class="error"></p>
+    </section>
+
+    <section id="lobby" class="panel" hidden>
+      <h2>Room <span id="lobby-code"></span></h2>
+      <p>Share this link: <a id="lobby-link"></a></p>
+      <p id="lobby-info" class="muted"></p>
+      <ol id="lobby-players"></ol>
+      <button id="lobby-start" hidden>Start the match</button>
+      <p id="lobby-wait" class="muted" hidden>Waiting for the host to start...</p>
+    </section>
+
+    <section id="game" hidden>
+      <div class="stage">
+        <canvas id="board-canvas" aria-label="Dartboard: aim with the pointer, release to throw"></canvas>
+        <div id="banner" hidden></div>
+      </div>
+      <aside>
+        <div class="panel">
+          <h2 id="round-title"></h2>
+          <p id="status"></p>
+          <p id="visit" class="visit"></p>
+          <div class="buttons">
+            <button id="advance" hidden>Next round</button>
+            <button id="fast" hidden>Skip to the end</button>
+            <button id="again" hidden>Back to menu</button>
+          </div>
+        </div>
+        <div class="panel">
+          <h2>Field <small id="field-count"></small></h2>
+          <ol id="standings"></ol>
+        </div>
+        <div class="panel">
+          <h2>Feed</h2>
+          <ul id="feed"></ul>
+        </div>
+      </aside>
+    </section>
+
+    <section id="credits" class="panel" hidden>
+      <h2>Made by</h2>
+      <p class="muted">Every player, board and game mode was contributed by someone. Thank you.</p>
+      <ul id="credit-list"></ul>
+    </section>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

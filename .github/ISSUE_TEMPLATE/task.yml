@@ -1,0 +1,58 @@
+name: Task
+description: A small, self-contained piece of work for a volunteer or their AI agent.
+title: "Player: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Agents only pick up tasks after a maintainer adds the `task:ready` label.
+        Good tasks touch one file, have a clear scope and testable acceptance criteria.
+  - type: dropdown
+    id: zone
+    attributes:
+      label: Zone
+      options: [players, boards, modes, docs, core]
+    validations:
+      required: true
+  - type: dropdown
+    id: size
+    attributes:
+      label: Size
+      options:
+        - S (about 30 minutes of agent time)
+        - M (about 60 minutes of agent time)
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: One or two sentences. What should exist when this is done?
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Rules, examples, constraints. Link to existing files the agent should read.
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      value: |
+        - npm test passes
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: Files the agent may touch, one glob per line. Start a line with + to allow only NEW files (e.g. +content/players/*.json).
+      placeholder: +content/players/*.json
+    validations:
+      required: true
+  - type: input
+    id: depends
+    attributes:
+      label: Depends on
+      description: Issues that must be closed first, e.g. "#12, #15".

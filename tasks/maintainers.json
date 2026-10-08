@@ -1,0 +1,4 @@
+{
+  "_comment": "GitHub logins whose task:ready label the agent worker trusts. Only issues approved by these people are ever handed to volunteers' agents. Changing this file needs core-team review (see .github/CODEOWNERS).",
+  "maintainers": ["carelevers"]
+}

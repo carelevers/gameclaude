@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate, unit tests, 100-bot simulation
+        run: npm test
+      - name: Scope report
+        if: github.event_name == 'pull_request'
+        run: node tools/scope-check.mjs --base "origin/${{ github.base_ref }}" --markdown | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Balance report
+        if: always()
+        run: node tools/simulate.mjs --runs 30 --markdown >> "$GITHUB_STEP_SUMMARY" || true

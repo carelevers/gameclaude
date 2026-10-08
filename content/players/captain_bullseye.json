@@ -1,0 +1,23 @@
+{
+  "id": "captain_bullseye",
+  "name": "Captain Bullseye",
+  "author": "@core-team",
+  "bio": "Only aims at the bull. Has a parrot named Fifty.",
+  "accuracy": 74,
+  "nerves": 45,
+  "color": "y",
+  "avatar": [
+    "kkkkkkkk",
+    ".kkwkkk.",
+    ".ykyywy.",
+    ".yyyyyy.",
+    ".yrrrry.",
+    "nnnnnnnn",
+    "nynnnnyn",
+    "nn.nn.nn"
+  ],
+  "catchphrases": [
+    "Arr, fifty!",
+    "Bull or nothing."
+  ]
+}

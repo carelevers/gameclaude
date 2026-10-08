@@ -1,0 +1,23 @@
+{
+  "id": "nervous_noah",
+  "name": "Nervous Noah",
+  "author": "@core-team",
+  "bio": "Brilliant in practice. Please do not watch him throw.",
+  "accuracy": 88,
+  "nerves": 95,
+  "color": "c",
+  "avatar": [
+    "..cccc..",
+    ".cccccc.",
+    ".ykyyky.",
+    ".yyyyyy.",
+    "..yaay..",
+    ".cccccc.",
+    "cccccccc",
+    "cc.cc.cc"
+  ],
+  "catchphrases": [
+    "Is everyone looking?",
+    "Oh no oh no oh no."
+  ]
+}

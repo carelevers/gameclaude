@@ -1,0 +1,36 @@
+{
+  "id": "london_fives",
+  "name": "London Fives",
+  "author": "@core-team",
+  "description": "The old twelve-segment board with only 5s, 10s, 15s and 20s.",
+  "segments": [
+    20,
+    5,
+    15,
+    10,
+    20,
+    5,
+    15,
+    10,
+    20,
+    5,
+    15,
+    10
+  ],
+  "rings": {
+    "bull": 6.35,
+    "outerBull": 15.9,
+    "trebleInner": 99,
+    "trebleOuter": 107,
+    "doubleInner": 162,
+    "doubleOuter": 170
+  },
+  "colors": {
+    "dark": "k",
+    "light": "o",
+    "red": "p",
+    "green": "b",
+    "wire": "s",
+    "surround": "d"
+  }
+}

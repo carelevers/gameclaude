@@ -1,0 +1,15 @@
+name: Bug
+description: Something is broken.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: how
+    attributes:
+      label: How can we reproduce it?
+      description: Mode, board, solo or online, browser/device. The URL of a solo game contains no seed; a screenshot helps.

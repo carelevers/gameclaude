@@ -1,0 +1,17 @@
+{
+  "claude": {
+    "command": "claude",
+    "args": [
+      "-p",
+      "{prompt}",
+      "--permission-mode",
+      "acceptEdits",
+      "--allowedTools",
+      "Read,Edit,Write,Glob,Grep,Bash(npm test),Bash(npm run validate),Bash(npm run simulate),Bash(node tools/validate.mjs),Bash(node tools/simulate.mjs:*),Bash(node --test:*)"
+    ]
+  },
+  "codex": {
+    "command": "codex",
+    "args": ["exec", "--full-auto", "{prompt}"]
+  }
+}
